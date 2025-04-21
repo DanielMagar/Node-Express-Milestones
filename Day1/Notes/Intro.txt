@@ -29,4 +29,60 @@
 
            Tons of demand for full-stack JavaScript devs (React + Node is 🔥).
 
+   Whats NEXT ?
+   - Potential Next Topics
+      1. File System Module (fs)
+
+         Reading/writing files synchronously and asynchronously
+
+         Working with directories
+
+         File streams
+
+      2. HTTP Module
+
+         Creating a basic web server
+
+         Handling routes
+
+         Serving static files
+
+      3. NPM & Packages
+
+         Using third-party modules
+
+         package.json explained
+
+         Popular packages (Express, Lodash, etc.)
+
+      4. Express.js Framework
+
+         Setting up a basic Express app
+
+         Middleware concepts
+
+         Routing in Express
+
+      5. Database Connections
+
+         MongoDB with Mongoose
+
+         SQL databases with Sequelize
+
+      6. Authentication
+
+         JWT (JSON Web Tokens)
+
+         Sessions
+
+         OAuth integration
+
+      7. Deployment
+
+         Deploying to Heroku, AWS, or other platforms
+
+         Environment variables
+
+         PM2 for process management
+
 

@@ -1,0 +1,26 @@
+1. What is a Module ?
+  - A module is a functionslity which is organised in a single or multiple JavaScript file(s) that can be 
+    reused throughout the Node.js application.
+
+    A module in Node.js is a self-contained block of code that provides specific functionality. 
+    Modules help you:
+
+        i.   Organize code into logical units
+
+        ii.  Encapsulate functionality
+
+        iii. Promote code reusability
+
+        iv.  Prevent polluting the global namespace
+
+        v.   Manage dependencies effectively
+
+   Each module has its own scope - variables, functions, and objects defined in a module are private to 
+   that module unless explicitly exported.
+
+2. Types of modules -
+   i. Core modules (Built-in-module)
+   ii. Third Party Modules (Node Package Manager)
+   iii. Local Module (user Defined Module)
+
+   - CORE MODULES (Built-in-module)
