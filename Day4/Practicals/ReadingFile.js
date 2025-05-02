@@ -12,3 +12,9 @@ try {
 // 1.'utf8' is important — it ensures the content is returned as a string, not a Buffer.
 
 // 2. If the file doesn't exist, this will throw an error — so wrap it in a try-catch if needed.
+
+// ✅ 2. Asynchronous File Reading – fs.readFileSync
+
+fs.readFile("file.txt", "utf8", (err, data) => {
+  if (err) return console.log("Error reading file:", err);
+});

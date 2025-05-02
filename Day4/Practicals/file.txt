@@ -1,2 +1,1 @@
-Hello Daniel!
-Welcome to Node.js
+Hello this a sync write file demo !
