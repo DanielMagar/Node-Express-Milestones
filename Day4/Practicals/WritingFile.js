@@ -12,3 +12,4 @@ fs.writeFile("fileAsync.txt", "Hello this a async write file demo !", (err) => {
     if (err) return console.log("Error writing file:", err);
     console.log("File written successfully");
 })
+
