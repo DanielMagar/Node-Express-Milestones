@@ -1,0 +1,69 @@
+Different Types of Core Modules
+🧱 Core Modules in Node.js (Grouped by Functionality)
+
+1. 🔧 Utility & System Modules
+
+Module	                    Purpose
+-----------------------------------------------------------------------------------------------
+util	                    Utility functions (promisify, format, etc.)
+events	                    Event-driven programming (EventEmitter)
+stream	                    Handling streaming data (e.g. file streams)
+buffer	                    Raw binary data buffer
+timers	                    setTimeout, setInterval, etc.
+
+
+2. 📁 File System & Path
+
+Module	                    Purpose
+-----------------------------------------------------------------------------------------------
+fs	                        File system (read/write files)
+path	                    File path utilities
+fs/promises	                File system with promises
+
+3. 🌐 Networking & Web
+
+Module	                    Purpose
+------------------------------------------------------------------------------------------------
+http	                    Create HTTP servers and clients
+https	                    HTTP over SSL/TLS
+http2	                    Support for HTTP/2
+net	                        TCP servers and clients
+tls	                        Implement TLS and SSL
+dns	                        DNS lookup and resolution
+url	                        Parse and format URLs
+querystring	                Work with URL query strings
+
+4. ⚙️ OS & Process
+
+Module	                    Purpose
+------------------------------------------------------------------------------------------------
+os	                        Info about the operating system
+process	                    Info and control of the current Node.js process
+child_process	            Spawn subprocesses (run shell commands)
+cluster	                    Run multiple Node.js processes (for scaling)
+
+5. 🔐 Security & Data Handling
+
+Module	                    Purpose
+------------------------------------------------------------------------------------------------
+crypto	                    Hashing, encryption, decryption
+zlib	                    Compression and decompression (gzip/deflate)
+
+6. 🧪 Testing & Debugging
+
+Module	                    Purpose
+-----------------------------------------------------------------------------------------------
+assert	                    Assertion testing
+inspector	                Debugging support with Chrome DevTools
+v8	                        Interact with the V8 JavaScript engine
+
+
+7. 📦 Other Modules
+
+Module	                    Purpose
+------------------------------------------------------------------------------------------------
+readline	                Read from command-line input
+repl	                    Read-Eval-Print Loop (interactive shell)
+perf_hooks	                Performance measurement
+timers/promises	            Timers that return promises
+module	                    Manage modules (rarely used manually)

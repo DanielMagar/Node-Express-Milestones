@@ -1,6 +1,8 @@
-1. What is a Module ?
+🔧 1. What are Node.js Modules?
   - A module is a functionslity which is organised in a single or multiple JavaScript file(s) that can be 
     reused throughout the Node.js application.
+
+    In Node.js, modules are reusable pieces of code — like functions, objects, or entire files — that can be imported/exported between files. They help you organize your code into manageable chunks
 
     A module in Node.js is a self-contained block of code that provides specific functionality. 
     Modules help you:
@@ -23,4 +25,52 @@
    ii. Third Party Modules (Node Package Manager)
    iii. Local Module (user Defined Module)
 
-   - CORE MODULES (Built-in-module)
+   📦 Types of Node.js Modules
+     1. Built-in (Core) Modules
+            These are provided by Node.js out of the box. No need to install anything.
+
+            Examples:
+
+            fs → File system (read/write files)
+
+            http → Create a web server
+
+            path → Handle file paths
+
+            os → Info about your operating system
+
+            crypto → Encryption utilities.
+
+            Examples:
+                const fs = require('fs');
+                const path = require('path');
+      
+      2. Third-party Modules
+            These are installed via npm (Node Package Manager), like express, axios, lodash, etc.
+
+            Example:
+             Installation of third party module:
+
+               npm install express
+
+             Using the third party module:
+
+               const express = require('express');
+               const app = express();
+
+        3. Local Modules
+            Modules you create yourself in your project.
+
+            Example:
+                // myModule.js
+                function greet(name) {
+                  return `Hello, ${name}!`;
+                }
+                module.exports = greet;
+
+                // app.js
+                const greet = require('./myModule');
+                console.log(greet('Daniel')); // Hello, Daniel!
+
+
+

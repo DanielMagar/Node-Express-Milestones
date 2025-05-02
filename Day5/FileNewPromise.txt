@@ -1,0 +1,2 @@
+Hello this is promise based file read write demo.
+Appended by promise-fs.js based Node.js

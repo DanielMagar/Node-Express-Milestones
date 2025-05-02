@@ -1,0 +1,42 @@
+✨ Module Systems: CommonJS vs ES Modules
+
+    Node.js supports two module types:
+     1. CommonJS (require, module.exports) / Works with ES5
+     2. 2. ES Modules (import, export) / Works with ES6
+
+1. Common JS (require, module.exports)
+    Default in Node.js.
+
+    Synchronous.
+
+    Most widely used in backend.
+
+    Example: 
+            const fs = require('fs');
+            module.exports = myFunc;
+
+    
+    Syntax : var module = require('module_name');
+
+       Note: 'require()' function specified here will return an Object, function, property or any other 
+              JS type, depending on what is specified in module. 
+
+🔹 2. ES Modules (import, export)
+
+      Modern JavaScript style.
+
+      You need to use "type": "module" in package.json or .mjs file extension.
+
+      Example : 
+                import fs from 'fs';
+                export default myFunc;
+
+🔁 Summary Table: 
+
+Module Type	                            How to Use	                    Example
+______________________________________________________________________________________________________
+
+Built-in	                            require('fs')	                File handling
+Local	                                require('./myFile')	            Your custom logic
+Third-party	                            require('express')	            Installed via npm install
+ES Modules	                            import something from	        Requires "type": "module"
