@@ -1,0 +1,11 @@
+🔰 What is yargs?
+    - yargs is a Node.js library used to:
+
+        - Parse command-line arguments
+
+        - Build powerful CLI tools with subcommands, flags, help messages, validation, etc.
+
+        - Think of it as Express.js for the command line.
+    ✅ 1. Installation
+
+            - npm install yargs
