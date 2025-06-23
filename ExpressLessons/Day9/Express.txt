@@ -1,0 +1,86 @@
+🚀 What is Express.js?
+   - Express.js is a minimal and flexible Node.js web framework for building APIs and web applications.
+      It handles:
+
+        📥 HTTP requests (GET, POST, PUT, DELETE)
+
+        🛣 Routing
+
+        📄 Serving static files
+
+        🧱 Middleware for custom logic
+
+        🛡 Error handling and security
+
+🧠 Core Concept: Request–Response Callback
+   app.get('/route', (req, res) => {
+       // callback function
+   });
+   This callback gets triggered when someone accesses /route with a GET request.
+   ✅ Parameters: req, res
+    | Parameter | Description                                                        |
+    | --------- | ------------------------------------------------------------------ |
+    | `req`     | The **request object** — contains info sent **by the client**      |
+    | `res`     | The **response object** — used to **send data back** to the client |
+
+   📥 req (Request Object)
+
+    | Property      | What it holds                     |
+    | ------------- | --------------------------------- |
+    | `req.params`  | Route parameters like `/user/:id` |
+    | `req.query`   | Query string like `?sort=name`    |
+    | `req.body`    | Data sent in POST/PUT requests    |
+    | `req.headers` | HTTP headers                      |
+    | `req.method`  | GET, POST, etc.                   |
+    | `req.url`     | The requested URL path            |
+
+   📤 res (Response Object)
+    | Method           | What it does                               |
+    | ---------------- | ------------------------------------------ |
+    | `res.send()`     | Sends a plain string or object             |
+    | `res.json()`     | Sends a JSON response                      |
+    | `res.status()`   | Sets HTTP status code                      |
+    | `res.sendFile()` | Sends a file from disk                     |
+    | `res.redirect()` | Redirects the user to another route or URL |
+
+    🧪 Example: GET route with callback
+        app.get('/hello', (req, res) => {
+            res.send('👋 Hello from Express!');
+        });
+
+    🧪 Example: Using req.params
+        app.get('/user/:id', (req, res) => {
+            const userId = req.params.id;
+            res.send(`User ID is ${userId}`);
+        });
+        URL: http://localhost:3000/user/5
+        Output: User ID is 5
+
+    🧪 Example: Using req.query
+       app.get('/search', (req, res) => {
+            const keyword = req.query.q;
+            res.send(`You searched for: ${keyword}`);
+        });
+        URL: http://localhost:3000/search?q=express
+        Output: You searched for: express
+    
+    🧪 Example: POST request (needs body parser)
+
+        app.use(express.json()); // Middleware to parse JSON
+
+        app.post('/submit', (req, res) => {
+            const { name } = req.body;
+            res.send(`Hello, ${name}`);
+        });
+
+🧠 Summary Table
+    | Term       | Role                         |
+    | ---------- | ---------------------------- |
+    | `req`      | Holds incoming client data   |
+    | `res`      | Sends back your response     |
+    | `callback` | Executes when a route is hit |
+
+
+
+
+

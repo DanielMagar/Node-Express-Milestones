@@ -1,0 +1,19 @@
+✅ Step 2: Next Concepts to Learn
+
+| Concept          | Description                          |
+| ---------------- | ------------------------------------ |
+| Routes           | Define multiple endpoints            |
+| Middleware       | Functions that handle requests       |
+| Request/Response | Access `req.body`, `req.params`, etc |
+| JSON API         | Build RESTful routes (`/users`, etc) |
+| Static Files     | Serve CSS, HTML, images              |
+
+ => 📚 HTTP Methods (a.k.a. Routes)
+ These are the most commonly used:
+    | Method   | Use Case             |
+    | -------- | -------------------- |
+    | `GET`    | Fetch data           |
+    | `POST`   | Send/create new data |
+    | `PUT`    | Update entire record |
+    | `PATCH`  | Update partial data  |
+    | `DELETE` | Remove data          |
