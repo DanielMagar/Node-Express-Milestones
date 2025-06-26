@@ -25,7 +25,7 @@ Topics to learn :
 7. Request Package
 8. Customizing HTTP Requests
 9. Error handling with appropriate HTTP codes
-10. Embedded JavaScript (EJS) Template
+10. Embedded JavaScript (EJS) Template / Template Engines
 ------------------------------------------------------------------
 NOTE: use Latin Loupe for understanding call stacks and dsa in JS
 

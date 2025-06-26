@@ -1,5 +1,5 @@
 function taskA() {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     setTimeout(() => {
       resolve("Result A");
     }, 1000);
@@ -7,7 +7,7 @@ function taskA() {
 }
 
 function taskB() {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     setTimeout(() => {
       resolve("Result B");
     }, 2000);
@@ -15,7 +15,7 @@ function taskB() {
 }
 
 function taskC() {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     setTimeout(() => {
       resolve("Result C");
     }, 1500);
@@ -23,9 +23,9 @@ function taskC() {
 }
 
 Promise.all([taskA(), taskB(), taskC()])
-  .then(results => {
+  .then((results) => {
     console.log("✅ All done:", results);
   })
-  .catch(err => {
+  .catch((err) => {
     console.error("❌ One task failed:", err);
   });
