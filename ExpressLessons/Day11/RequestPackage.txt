@@ -1,0 +1,26 @@
+📦 What is the request Package in Node.js?
+    The request package was a popular third-party Node.js module used to make HTTP requests — like GET, POST, PUT, DELETE — to APIs or web servers.
+
+    It simplified working with REST APIs and external web services.
+
+✅ Common Use Case:
+   const request = require('request');
+
+    request('https://api.example.com/data', (error, response, body) => {
+    if (!error && response.statusCode === 200) {
+        console.log(body); // print the response body
+    }
+    });
+    ⚠️ But wait — Important Note:
+        The request package is now deprecated since February 2020 and is no longer maintained.
+
+        So while it still works, it's not recommended for new projects.
+  ✅ Modern Alternatives (You Should Use Instead):
+    | Package          | Features                                         |
+    | ---------------- | ------------------------------------------------ |
+    | **`axios`**      | Promise-based, modern, supports `async/await`    |
+    | **`node-fetch`** | Lightweight, uses `fetch` API like in browsers   |
+    | **`got`**        | Powerful, feature-rich, great for advanced usage |
+
+
+NOTE: You need to install Request Package inorder to use, node alone will not provide by default
