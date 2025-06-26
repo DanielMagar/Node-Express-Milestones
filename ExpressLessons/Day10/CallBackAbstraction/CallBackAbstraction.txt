@@ -1,0 +1,26 @@
+🧠 What is Callback Abstraction?
+
+Callback abstraction means:
+
+Instead of hardcoding what happens after an operation, you allow the caller to pass in a custom callback — making your function flexible.
+
+This is useful when:
+- You want to reuse the same logic but change what happens after it finishes.
+- You’re working with async functions like fs.readFile, API calls, or timers.
+🔁 Real-Life Analogy
+Imagine a microwave:
+
+You set a timer.
+
+After it's done, you choose what to do: eat, serve, reheat.
+
+➡️ The microwave (function) is fixed, but the next step (callback) is custom.
+
+✅ Key Benefits of Callback Abstraction
+
+| Benefit         | Why it matters                                 |
+| --------------- | ---------------------------------------------- |
+| **Reusability** | Same function, different outcomes              |
+| **Decoupling**  | Caller decides *what happens next*             |
+| **Scalability** | Works great in async (like APIs, file systems) |
+| **Clean code**  | Less repetition, more control                  |

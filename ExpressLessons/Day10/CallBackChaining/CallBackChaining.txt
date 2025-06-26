@@ -1,0 +1,82 @@
+🧠 What is Callback Chaining?
+   - Callback chaining means calling one async function inside another's callback, creating a sequence (or chain) of dependent steps.
+
+    Each step waits for the previous one to complete.
+🔁 Real-life Analogy
+   - Imagine cooking:
+
+   - Boil water
+
+   - Then cook rice
+
+   - Then serve the dish
+
+   You can’t serve the rice before it’s boiled and cooked. So each step depends on the previous — this is chaining.
+
+   Example:
+   function step1() {
+    console.log("Step 1");
+   }
+
+    function step2() {
+    console.log("Step 2");
+    }
+
+    step1();
+    step2();
+This runs synchronously — nothing waits.
+
+
+🔗 Callback Chaining (Async Way)
+Let’s make it async using setTimeout to simulate time delays:
+
+function step1(callback) {
+  setTimeout(() => {
+    console.log("Step 1 done");
+    callback();
+  }, 1000);
+}
+
+function step2(callback) {
+  setTimeout(() => {
+    console.log("Step 2 done");
+    callback();
+  }, 1000);
+}
+
+function step3() {
+  setTimeout(() => {
+    console.log("Step 3 done");
+  }, 1000);
+}
+
+// 🔗 Chain them
+step1(() => {
+  step2(() => {
+    step3();
+  });
+});
+
+
+⚠️ Problem: Callback Hell
+If you keep chaining many callbacks like this:
+It becomes hard to read, debug, and maintain — this is called callback hell.
+
+🛠️ How to Solve It?
+Modularize your callbacks
+→ Define them separately instead of nesting
+
+Use Promises
+→ Promise chaining is much cleaner
+
+Use async/await
+→ Most readable and modern approach
+
+✅ Summary
+
+| Concept           | Description                                      |
+| ----------------- | ------------------------------------------------ |
+| Callback chaining | Nesting callbacks to control async steps         |
+| Use case          | When each async task depends on the previous one |
+| Downside          | Callback hell 😓                                 |
+| Solution          | Use Promises or async/await ✅                    |

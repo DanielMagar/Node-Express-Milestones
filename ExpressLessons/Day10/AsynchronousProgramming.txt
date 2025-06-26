@@ -1,0 +1,186 @@
+🧠 1. Understanding Synchronous vs Asynchronous
+Synchronous: Code runs line by line. Slower operations (like reading a file) block the rest.
+
+Asynchronous: Code initiates an operation and moves on. The result comes back later (via callbacks, promises, or async/await).
+
+📦 2. Asynchronous in Node.js
+Node uses asynchronous methods for:
+
+File operations (fs)
+
+HTTP requests (http, axios)
+
+Database calls (MongoDB, MySQL)
+
+Timers (setTimeout, setInterval)
+
+Topics to learn :
+
+1. Call Stack
+2. Callbacks, Callback Queue and Event Loop
+3. Callback Abstraction
+4. Callback chaining
+5. Promises
+6. Promise chaining
+7. Request Package
+8. Customizing HTTP Requests
+9. Error handling with appropriate HTTP codes
+10. Embedded JavaScript (EJS) Template
+------------------------------------------------------------------
+NOTE: use Latin Loupe for understanding call stacks and dsa in JS
+
+- 🧠 What is the Call Stack?
+The call stack is a data structure used by the JavaScript engine to keep track of function calls.
+Imagine it like a stack of plates — the last plate you put on top is the first one you take off (LIFO — Last In, First Out).
+🧱 How it Works (Synchronous example):
+
+function greet() {
+  console.log("Hello!");
+}
+
+function start() {
+  greet();
+  console.log("Start done.");
+}
+
+start();
+📊 What Happens in the Call Stack?
+start() is called → it's pushed onto the stack
+
+Inside start(), it calls greet() → greet() is pushed on top
+
+greet() logs "Hello!" and finishes → it's popped off
+
+Back in start(), it logs "Start done." and finishes → start() is popped off
+
+Stack is empty — done!
+
+🤹 Now, What About Asynchronous Code?
+console.log("1");
+
+setTimeout(() => {
+  console.log("2");
+}, 1000);
+
+console.log("3");
+📊 Call Stack Behavior Here:
+console.log("1") runs → stack logs 1
+
+setTimeout() is called → browser (or Node) sets a timer outside the call stack
+
+console.log("3") runs → stack logs 3
+
+After 1 second, callback from setTimeout is pushed into the queue
+
+Once the stack is empty, event loop pushes the console.log("2") callback into the stack → logs 2
+
+✅ This is why "1", "3", "2" is printed — because the callback is delayed until the stack is clear.
+🔁 Summary:
+The Call Stack runs synchronous code.
+
+Async tasks (like setTimeout, fs.readFile) are handled outside the stack.
+
+When they’re ready, they go into the callback queue.
+
+The event loop checks if the stack is empty and then pushes the callback in.
+
+
+[Time: 0ms]
+
+CALL STACK:           |       QUEUE:       |   WEB APIs:
+----------------------|--------------------|--------------------
+console.log("1")      |                    |                  
+→ Output: 1           |                    |
+(stack clears)        |                    |
+
+CALL STACK:           |                    |
+----------------------|--------------------|
+setTimeout()          |                    | setTimeout(1s)
+→ Timer starts        |                    |
+(stack clears)        |                    |
+
+CALL STACK:           |                    | ⏳ waiting...
+----------------------|--------------------| 1000ms running...
+
+console.log("3")      |                    | 
+→ Output: 3           |                    |
+(stack clears)        |                    |
+
+[Time: ~1000ms]
+
+CALL STACK:           |  console.log("2")  | Timer done ✅
+----------------------|--------------------|--------------------
+                      |  [callback queued] |   
+
+EVENT LOOP checks:
+→ Stack empty? ✅
+→ Callback? ✅
+→ Push to call stack
+
+CALL STACK:           |                    |
+----------------------|--------------------|
+console.log("2")      |                    |
+→ Output: 2           |
+(stack clears)        |                    |
+
+✅ Final Output:  
+1  
+3  
+2  
+
+🧠 What are Call Stack, Web APIs, and Callback Queue —
+  -1. Call Stack, Web APIs, and Callback Queue — are key parts of the JavaScript runtime environment, especially when dealing with asynchronous operations. 
+    📌 1. Call Stack
+        🧠 It’s where JavaScript executes your code, one function at a time.
+
+        It’s a LIFO (Last In, First Out) stack.
+
+        Each time a function is called, it’s pushed onto the stack.
+
+        When the function finishes, it’s popped off the stack.
+
+    🌐 2. Web APIs (or Node APIs)
+          🛠️ These are browser/Node.js provided tools for handling async tasks outside the call stack.
+
+            Examples:
+
+            setTimeout()
+
+            fetch() or axios.get()
+
+            fs.readFile() in Node.js
+
+            DOM events (like onclick)
+        💡 These don’t block the main thread. They do their work in the background and then signal when they’re done.
+    🧪 Example:
+            setTimeout(() => {
+                console.log("Hello after 1s");
+            }, 1000);
+
+            📤 setTimeout() is handled by Web APIs, not the call stack.
+
+    📥 3. Callback Queue (a.k.a. Task Queue)
+            📫 A waiting area for async callbacks until the call stack is empty.
+
+            Once a Web API finishes (e.g., 1-second timer), the callback function (like () => console.log("Hello")) is placed into the callback queue.
+
+            The event loop checks if the stack is clear and pushes the next callback into it.
+
+🌀 Bonus: The Event Loop
+    🔁 It’s the mechanism that moves callbacks from the queue to the stack.
+
+    👉 It continuously:
+    Checks if the call stack is empty
+
+    If yes, it moves the first callback from the queue to the call stack
+
+🎯 Summary Chart
+| Component          | What it does                              | Who provides it    |
+| ------------------ | ----------------------------------------- | ------------------ |
+| **Call Stack**     | Executes functions in order (LIFO)        | JavaScript Engine  |
+| **Web APIs**       | Handles async tasks (timers, fetch, etc.) | Browser / Node.js  |
+| **Callback Queue** | Holds completed async callbacks           | JavaScript Runtime |
+| **Event Loop**     | Moves callbacks to stack when it's empty  | JavaScript Runtime |
+
+
+
