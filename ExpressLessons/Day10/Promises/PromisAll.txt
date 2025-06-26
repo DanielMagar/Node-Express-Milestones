@@ -1,0 +1,42 @@
+🧠 What is Promise.all?
+   - Promise.all() lets you run multiple promises in parallel and wait for all of them to complete.
+   It takes an array of promises and returns:
+
+    ✅ a single promise that resolves when all promises resolve
+
+    ❌ or rejects if any one promise fails
+
+✅ Example: 
+    Promise.all([promise1, promise2, promise3])
+    .then((resultsArray) => {
+        // all promises succeeded
+    })
+    .catch((error) => {
+        // one of them failed
+    });
+
+----------------------------------------------------------------------------------------------------------------
+ 🧠 Your Question:
+Can the array inside Promise.all([ ... ]) contain simple variables instead of function calls like taskA()?
+
+✅ Answer:
+Yes — as long as those variables are Promises!
+
+ Example: ✅ This is also fine (using variables that already contain Promises):
+            const a = taskA();
+            const b = taskB();
+            const c = taskC();
+
+            Promise.all([a, b, c]);
+        ➡️ In this case, a, b, and c are Promise objects, so it's perfectly valid to pass them to Promise.all().
+
+Bonus Tip:
+If you ever store your functions in an array, you can call them like this:
+
+    const tasks = [taskA, taskB, taskC]; // functions, not promises yet
+
+    const promises = tasks.map(fn => fn()); // now they're promises
+    Promise.all(promises).then(...);
+
+
+
