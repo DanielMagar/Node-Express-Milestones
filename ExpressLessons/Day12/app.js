@@ -7,7 +7,7 @@ const PORT = 3100;
 app.set('view engine', 'ejs');
 
 //server static files (like css, images) from the public directory
-app.use(express.static('public'));
+app.use(express.static('/public'));
 
 //
 app.get('/', (req, res) => {
